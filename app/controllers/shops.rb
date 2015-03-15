@@ -1,5 +1,4 @@
 BeOpenNow::App.controllers :shops do
-  
   # get :index, :map => '/foo/bar' do
   #   session[:foo] = 'bar'
   #   render 'index'
@@ -18,7 +17,7 @@ BeOpenNow::App.controllers :shops do
   # get '/example' do
   #   'Hello world!'
   # end
-  
+
   get :index do
 
   end
@@ -26,5 +25,4 @@ BeOpenNow::App.controllers :shops do
   get :show do
 
   end
-
 end
