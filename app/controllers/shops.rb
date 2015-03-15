@@ -19,7 +19,23 @@ BeOpenNow::App.controllers :shops do
   # end
 
   get :index do
-    @shops = Shop.all
+    now_time = Time.now
+    now_str = now_time.strftime("%H:%M")
+    # TODO: select in SQL
+    # TODO: support holiday
+    @shops = Shop.all.select do |shop|
+      case now_time
+      when 0
+        now_str > shop.sunday_opening_time &&
+          now_str < shop.sunday_closing_time
+      when 6
+        now_str > shop.saturday_opening_time &&
+          now_str < shop.saturday_closing_time
+      else
+        now_str > shop.weekday_opening_time &&
+          now_str < shop.weekday_closing_time
+      end
+    end
     render "shops/index"
   end
 
