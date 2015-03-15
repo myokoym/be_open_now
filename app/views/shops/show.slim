@@ -27,7 +27,7 @@
       = "Sunday Opening Time: #{@shop.sunday_opening_time}"
     .sunday_closing_time
       = "Sunday Closing Time: #{@shop.sunday_closing_time}"
-    - unless @shop.holidays.empty?
+    - if @shop.holidays
       .holidays
         = "Holidays: #{@shop.holidays}"
     .description
