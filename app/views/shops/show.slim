@@ -1,12 +1,38 @@
 - @title = @shop.name
 #show
   .shop
-    h2.name= @shop.name
-    .address= "Address: " + @shop.address
-    .opening_time= "Opening Time: " + @shop.opening_time
-    .closing_time= "Closing Time: " + @shop.closing_time
-    .holiday= "Holiday: " + @shop.holiday
-    .description= simple_format(@shop.description)
-    .last_update= "Last Update: #{time_ago_in_words(@shop.updated_at)} ago"
+    h2.name
+      = @shop.name
+    .address
+      = "Address: #{@shop.address}"
+    .weekday_opening_time
+      = "Weekday Opening Time: #{@shop.weekday_opening_time}"
+    .weekday_closing_time
+      = "Weekday Closing Time: #{@shop.weekday_closing_time}"
+    - if @shop.weekday_opening_time2
+      .weekday_opening_time2
+        = "Weekday Opening Time2: #{@shop.weekday_opening_time2}"
+      .weekday_closing_time2
+        = "Weekday Closing Time2: #{@shop.weekday_closing_time2}"
+    .saturday_opening_time
+      = "Saturday Opening Time: #{@shop.saturday_opening_time}"
+    .saturday_closing_time
+      = "Saturday Closing Time: #{@shop.saturday_closing_time}"
+    - if @shop.saturday_opening_time2
+      .saturday_opening_time2
+        = "Saturday Opening Time2: #{@shop.saturday_opening_time2}"
+      .saturday_closing_time2
+        = "Saturday Closing Time2: #{@shop.saturday_closing_time2}"
+    .sunday_opening_time
+      = "Sunday Opening Time: #{@shop.sunday_opening_time}"
+    .sunday_closing_time
+      = "Sunday Closing Time: #{@shop.sunday_closing_time}"
+    - unless @shop.holidays.empty?
+      .holidays
+        = "Holidays: #{@shop.holidays}"
+    .description
+      = simple_format(@shop.description)
+    .last_update
+      = "Last Update: #{time_ago_in_words(@shop.updated_at)} ago"
 
 p= link_to "View all shops", url_for(:shops, :index)

@@ -1,6 +1,5 @@
-.shop
-  .name= link_to shop.name, url_for(:shops, :show, :id => shop)
-  .address= "Address: " + shop.address
-  .opening_time= "Opening Time: " + shop.opening_time
-  .closing_time= "Closing Time: " + shop.closing_time
-  .holiday= "Holiday: " + shop.holiday
+p.shop
+  .name
+    = link_to shop.name, url_for(:shops, :show, :id => shop)
+  .address
+    = "Address: #{shop.address}"

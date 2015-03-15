@@ -11,18 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2) do
+ActiveRecord::Schema.define(version: 3) do
 
   create_table "shops", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "postal_code"
-    t.string   "opening_time"
-    t.string   "closing_time"
-    t.string   "holiday"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "weekday_opening_time"
+    t.string   "weekday_closing_time"
+    t.string   "weekday_opening_time2"
+    t.string   "weekday_closing_time2"
+    t.string   "saturday_opening_time"
+    t.string   "saturday_closing_time"
+    t.string   "saturday_opening_time2"
+    t.string   "saturday_closing_time2"
+    t.string   "sunday_opening_time"
+    t.string   "sunday_closing_time"
+    t.string   "tags"
+    t.string   "holidays"
   end
 
 end
