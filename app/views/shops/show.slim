@@ -1,0 +1,12 @@
+- @title = @shop.name
+#show
+  .shop
+    h2.name= @shop.name
+    .address= "Address: " + @shop.address
+    .opening_time= "Opening Time: " + @shop.opening_time
+    .closing_time= "Closing Time: " + @shop.closing_time
+    .holiday= "Holiday: " + @shop.holiday
+    .description= simple_format(@shop.description)
+    .last_update= "Last Update: #{time_ago_in_words(@shop.updated_at)} ago"
+
+p= link_to "View all shops", url_for(:shops, :index)

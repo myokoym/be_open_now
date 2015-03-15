@@ -19,10 +19,12 @@ BeOpenNow::App.controllers :shops do
   # end
 
   get :index do
-
+    @shops = Shop.all
+    render "shops/index"
   end
 
-  get :show do
-
+  get :show, :with => :id do
+    @shop = Shop.find_by_id(params[:id])
+    render "shops/show"
   end
 end
