@@ -25,16 +25,19 @@ BeOpenNow::App.controllers :shops do
     # TODO: support holiday
     # TODO: support mos (-25:30)
     @shops = Shop.all.select do |shop|
-      case now_time
+      case now_time.wday
       when 0
-        now_str > shop.sunday_opening_time &&
-          now_str < shop.sunday_closing_time
+        open?(now_str,
+              shop.sunday_opening_time,
+              shop.sunday_closing_time)
       when 6
-        now_str > shop.saturday_opening_time &&
-          now_str < shop.saturday_closing_time
+        open?(now_str,
+              shop.saturday_opening_time,
+              shop.saturday_closing_time)
       else
-        now_str > shop.weekday_opening_time &&
-          now_str < shop.weekday_closing_time
+        open?(now_str,
+              shop.sunday_opening_time,
+              shop.sunday_closing_time)
       end
     end
     render "shops/index"
@@ -43,5 +46,12 @@ BeOpenNow::App.controllers :shops do
   get :show, :with => :id do
     @shop = Shop.find_by_id(params[:id])
     render "shops/show"
+  end
+
+  helpers do
+    def open?(now_str, opening_time, closing_time)
+      now_str > opening_time &&
+        now_str < closing_time
+    end
   end
 end
