@@ -50,6 +50,8 @@ BeOpenNow::App.controllers :shops do
 
   helpers do
     def open?(now_str, opening_time, closing_time)
+      return false unless opening_time
+
       now_str > opening_time &&
         now_str < closing_time
     end
