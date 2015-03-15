@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 2) do
 
   create_table "shops", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "postal_code"
-    t.time     "opening_time"
-    t.time     "closing_time"
+    t.string   "opening_time"
+    t.string   "closing_time"
     t.string   "holiday"
     t.text     "description"
     t.datetime "created_at"
