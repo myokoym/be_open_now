@@ -52,8 +52,16 @@ BeOpenNow::App.controllers :shops do
     def open?(now, opening, closing)
       return false unless opening
 
-      now > opening &&
-        now < closing
+      normalized_now = normalize_time(now)
+      normalized_opening = normalize_time(opening)
+      normalized_closing = normalize_time(closing)
+
+      normalized_now > normalized_opening &&
+        normalized_now < normalized_closing
+    end
+
+    def normalize_time(time_str)
+      time_str.split(":").map {|n| sprintf("%02d", n.to_i)}.join(":")
     end
   end
 end
