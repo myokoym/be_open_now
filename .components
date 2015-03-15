@@ -1,0 +1,9 @@
+---
+:orm: activerecord
+:test: none
+:mock: rr
+:script: jquery
+:renderer: slim
+:stylesheet: compass
+:namespace: BeOpenNow
+:migration_format: number
