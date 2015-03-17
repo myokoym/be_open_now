@@ -37,6 +37,9 @@ shops.each do |shop_hash|
   Shop.create({
                 name: shop.name,
                 address: shop.address,
+                weekday: shop.weekday,
+                saturday: shop.saturday,
+                sunday: shop.sunday,
                 bithour: bithour,
                 tags: shop.tags.join(","),
                 description: shop.description,
