@@ -6,5 +6,8 @@ class AddColumnsForHumanlyTimes < ActiveRecord::Migration
   end
 
   def self.down
+    remove_column :shops, :weekday
+    remove_column :shops, :saturday
+    remove_column :shops, :sunday
   end
 end
