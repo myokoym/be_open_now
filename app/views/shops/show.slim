@@ -11,6 +11,9 @@
       = "Saturday: #{@shop.saturday}"
     .sunday
       = "Sunday: #{@shop.sunday}"
+    -if @shop.holidays
+      .holidays
+        = "Holidays: #{@shop.holidays}"
     .description
       = simple_format(@shop.description)
     .last_update

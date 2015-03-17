@@ -33,6 +33,12 @@ shops.each do |shop_hash|
       shop.sunday,
       0)
 
+  if shop.holidays
+    holidays = shop.holidays.join(", ")
+  else
+    holidays = nil
+  end
+
   shop = OpenStruct.new(shop_hash)
   Shop.create({
                 name: shop.name,
@@ -40,6 +46,7 @@ shops.each do |shop_hash|
                 weekday: shop.weekday,
                 saturday: shop.saturday,
                 sunday: shop.sunday,
+                holidays: holidays,
                 bithour: bithour,
                 tags: shop.tags.join(","),
                 description: shop.description,
