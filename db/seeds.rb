@@ -39,7 +39,6 @@ shops.each do |shop_hash|
     holidays = nil
   end
 
-  shop = OpenStruct.new(shop_hash)
   Shop.create({
                 name: shop.name,
                 address: shop.address,
