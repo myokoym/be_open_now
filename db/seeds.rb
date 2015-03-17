@@ -1,6 +1,16 @@
 require "yaml"
 require "ostruct"
 
+DAYS = [
+  "sun",
+  "mon",
+  "tue",
+  "wed",
+  "thu",
+  "fri",
+  "sat",
+]
+
 def add(bithour, open_times, wday)
   return unless open_times
   return if open_times.empty?
@@ -20,6 +30,11 @@ shops.each do |shop_hash|
   bithour = "0" * (24 * 7)
 
   1.upto(5) do |wday|
+    if shop.holidays &&
+         shop.holidays.split(/\s*,\s*/).include?(DAYS[wday])
+      next
+    end
+
     add(bithour,
         shop.weekday,
         wday)

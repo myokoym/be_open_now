@@ -21,7 +21,6 @@ BeOpenNow::App.controllers :shops do
   get :index do
     now_time = Time.now
     # TODO: select in SQL
-    # TODO: support holiday
     @shops = Shop.all.select do |shop|
       shop.bithour[24 * now_time.wday + now_time.hour] == "1"
     end
