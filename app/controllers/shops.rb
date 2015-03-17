@@ -23,7 +23,6 @@ BeOpenNow::App.controllers :shops do
     now_str = now_time.strftime("%H:%M")
     # TODO: select in SQL
     # TODO: support holiday
-    # TODO: support mos (-25:30)
     @shops = Shop.all.select do |shop|
       shop.bithour[24 * now_time.wday + now_time.hour] == "1"
     end
