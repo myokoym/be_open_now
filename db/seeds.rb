@@ -5,10 +5,10 @@ def add(bithour, open_times, wday)
   return unless open_times
   return if open_times.empty?
   open_times.split(/\s*,\s*/).each do |open_time|
-    first_time, last_time = open_time.split("-")
-    first_hour = first_time.split(":")[0].to_i
-    last_hour = last_time.split(":")[0].to_i - 1
-    first_hour.upto(last_hour) do |hour|
+    opening_time, closing_time = open_time.split("-")
+    opening_hour = opening_time.split(":")[0].to_i
+    closing_hour = closing_time.split(":")[0].to_i - 1
+    opening_hour.upto(closing_hour) do |hour|
       bithour[24 * wday + hour] = "1"
     end
   end
