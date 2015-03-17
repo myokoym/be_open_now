@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "shops", force: :cascade do |t|
     t.string   "name"
@@ -20,18 +20,8 @@ ActiveRecord::Schema.define(version: 3) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "weekday_opening_time"
-    t.string   "weekday_closing_time"
-    t.string   "weekday_opening_time2"
-    t.string   "weekday_closing_time2"
-    t.string   "saturday_opening_time"
-    t.string   "saturday_closing_time"
-    t.string   "saturday_opening_time2"
-    t.string   "saturday_closing_time2"
-    t.string   "sunday_opening_time"
-    t.string   "sunday_closing_time"
     t.string   "tags"
-    t.string   "holidays"
+    t.string   "bithour"
   end
 
 end

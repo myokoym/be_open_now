@@ -25,20 +25,7 @@ BeOpenNow::App.controllers :shops do
     # TODO: support holiday
     # TODO: support mos (-25:30)
     @shops = Shop.all.select do |shop|
-      case now_time.wday
-      when 0
-        open?(now_str,
-              shop.sunday_opening_time,
-              shop.sunday_closing_time)
-      when 6
-        open?(now_str,
-              shop.saturday_opening_time,
-              shop.saturday_closing_time)
-      else
-        open?(now_str,
-              shop.sunday_opening_time,
-              shop.sunday_closing_time)
-      end
+      shop.bithour[24 * now_time.wday + now_time.hour - 7] == "1"
     end
     render "shops/index"
   end
