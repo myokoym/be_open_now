@@ -20,7 +20,6 @@ BeOpenNow::App.controllers :shops do
 
   get :index do
     now_time = Time.now
-    now_str = now_time.strftime("%H:%M")
     # TODO: select in SQL
     # TODO: support holiday
     @shops = Shop.all.select do |shop|
