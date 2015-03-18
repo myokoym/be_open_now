@@ -14,7 +14,7 @@ source 'https://rubygems.org'
 gem 'rake'
 
 # Component requirements
-gem 'compass'
+gem 'compass-blueprint'
 gem 'slim'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'sqlite3'
