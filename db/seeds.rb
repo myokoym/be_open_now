@@ -62,6 +62,8 @@ shops.each do |shop_hash|
                 sunday: shop.sunday,
                 holidays: holidays,
                 url: shop.url,
+                lat: shop.lat,
+                lng: shop.lng,
                 bithour: bithour,
                 tags: shop.tags.join(","),
                 description: shop.description,

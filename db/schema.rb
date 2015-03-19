@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 7) do
+ActiveRecord::Schema.define(version: 8) do
 
   create_table "shops", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 7) do
     t.string   "sunday"
     t.string   "holidays"
     t.string   "url"
+    t.float    "lat"
+    t.float    "lng"
   end
 
 end
