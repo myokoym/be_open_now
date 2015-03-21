@@ -8,6 +8,10 @@ module BeOpenNow
 
     enable :sessions
 
+    get "/" do
+      redirect "/shops"
+    end
+
     ##
     # Caching support.
     #
